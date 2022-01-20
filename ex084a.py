@@ -3,6 +3,7 @@ lista = list()
 dados = list()
 quantidade = maior_peso = menor_peso = 0
 while True:
+    print('-=' * 30)
     dados.append(str(input('Digite o nome: ')))
     dados.append(float(input('Digite o peso: ')))
     if len(lista) == 0:
@@ -21,6 +22,13 @@ while True:
     while escolha not in 'SN':
         print('Escolha inválida.')
         escolha = str(input('Quer continuar [S/N]: ')).upper().strip()[0]
+    print('-=' * 30)
 print(f'Foram cadastradas: {quantidade} pessoas.')
-print(f'O maior peso foi de {maior_peso}KG, e foram cadastradas {} pessoas com esse peso.')
-print(f'O menor peso foi de {menor_peso}KG, e foram cadastradas {} pessoas com esse peso.')
+print(f'As pessoas mais pesadas tiveram {maior_peso}KG e elas foram:')
+for cont in lista:
+    if cont[1] == maior_peso: 
+        print(f'{cont[0]}', end='...')
+print(f'\nAs pessoas mais leves tiveram {menor_peso}KG e elas foram:')
+for cont in lista:
+    if cont[1] == menor_peso:
+        print(f'{cont[0]}', end='...')
